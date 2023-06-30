@@ -19,7 +19,7 @@ function VerificationPage() {
       );
      
       setTimeout(() => {
-        navigate("/sigin");
+        navigate("/signin");
       }, 3000);
     } catch (err) {
       console.log(err);

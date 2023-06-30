@@ -7,7 +7,7 @@ function CheckEmail() {
       <div className="max-w-xl px-5 text-center">
         <h2 className="mb-2 text-4xl font-bold text-gray-800">
           <img src={logo} alt="" className="w-64 mx-auto my-auto" />
-          Check your inbox
+          Check your Inbox or Spam
         </h2>
       </div>
     </div>
