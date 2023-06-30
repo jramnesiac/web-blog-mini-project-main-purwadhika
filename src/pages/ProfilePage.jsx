@@ -98,7 +98,7 @@ const Profile = () => {
     );
 
     setTimeout(() => {
-      navigate('/login');
+      navigate('/Welcome-to-Circuit-Couture-404');
     }, 3000);
   };
 
@@ -121,7 +121,7 @@ const Profile = () => {
     );
 
     setTimeout(() => {
-      navigate('/login');
+      navigate('/Welcome-to-Circuit-Couture-404');
     }, 3000);
   };
 
@@ -144,7 +144,7 @@ const Profile = () => {
     );
 
     setTimeout(() => {
-      navigate('/login');
+      navigate('/Welcome-to-Circuit-Couture-404');
     }, 3000);
   };
 
@@ -170,7 +170,7 @@ const Profile = () => {
     );
 
     setTimeout(() => {
-      navigate('/login');
+      navigate('/Welcome-to-Circuit-Couture-404');
     }, 3000);
   };
 
@@ -182,7 +182,7 @@ const Profile = () => {
     dispatch(logoutUser);
 
     // Redirect ke halaman login
-    navigate('/login');
+    navigate('/Welcome-to-Circuit-Couture-404');
   };
 
   return (
