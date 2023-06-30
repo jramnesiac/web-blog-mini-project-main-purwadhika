@@ -57,12 +57,12 @@ const PasswordReset = () => {
     >
       {(props) => (
         <Form>
-          <div className="flex justify-center items-center h-screen bg-black">
+          <div className="flex justify-center items-center h-screen bg-white">
             <div className="p-8 max-w-md border-4 rounded-md shadow-lg">
               <div>
-                <h1 className="mb-6 text-center text-white">Create new password</h1>
+                <h1 className="mb-6 text-center text-gray-900">Create new password</h1>
                 <div className="mb-4">
-                  <label className="block text-white" htmlFor="password">
+                  <label className="block text-gray-900" htmlFor="password">
                     Password
                   </label>
                   <ErrorMessage
@@ -96,7 +96,7 @@ const PasswordReset = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="flex items-center text-white">
+                  <label className="flex items-center text-gray-900">
                     <input
                       type="checkbox"
                       className="form-checkbox"
@@ -111,7 +111,7 @@ const PasswordReset = () => {
                 className="px-4 py-2 bg-blue-500 text-white rounded-lg w-full"
                 type="submit"
               >
-                Change it!
+                Reset Password
               </button>
             </div>
           </div>
