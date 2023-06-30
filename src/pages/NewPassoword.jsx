@@ -101,7 +101,7 @@ const PasswordReset = () => {
                       type="checkbox"
                       className="form-checkbox"
                       checked={showPassword}
-                      onChange={SeePsw}
+                      onChange={NewPassword}
                     />
                     <span className="ml-2">Show Password</span>
                   </label>
