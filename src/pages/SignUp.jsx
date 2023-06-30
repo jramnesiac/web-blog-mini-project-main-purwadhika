@@ -3,7 +3,6 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import { Link } from "react-router-dom";
 import Banner from "../partials/Banner";
@@ -42,7 +41,6 @@ function SignupForm() {
       const confirmPassword = values.confirmPassword;
       const FE_URL = window.location.origin;
 
-
       await axios.post("https://minpro-blog.purwadhikabootcamp.com/api/auth/", {
         username,
         email,
@@ -52,16 +50,15 @@ function SignupForm() {
         FE_URL,
       });
 
-      toast.success("Signup successful!");
-
+      toast.success("Signup successful! Check Your Email...");
       setTimeout(() => {
         navigate("/signin");
       }, 3000);
     } catch (err) {
       console.log(err);
+      toast.error("Signup failed. Please try again.");
     }
   };
-
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       {/*  Site header */}
