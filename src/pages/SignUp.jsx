@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Banner from "../partials/Banner";
 import HeaderLogin from "../partials/HeaderLogin";
 
+
 function SignupForm() {
   const navigate = useNavigate();
 

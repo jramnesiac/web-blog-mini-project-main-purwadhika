@@ -15,7 +15,7 @@ export default function Blogger () {
             
             <FavBlog/>
             {/* <LatestBlog/> */}
-            <Banner/>
+            {/* <Banner/> */}
             <Footer/>
             
         </>

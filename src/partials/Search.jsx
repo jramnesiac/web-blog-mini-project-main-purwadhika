@@ -54,21 +54,19 @@ export const SearchResult = () => {
   };
 
   const handleClick = (id) => {
-    navigate(`/detailPage/${id}`);
-    window.location.reload();
+    navigate(`/blog/${id}`);
   };
 
   return (
     <>
       <HeaderLogin />
       <div className="p-10 h-70vh">
-      <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-                <h1 className="h1">
-                Discover the Future of Men's Fashion: Explore our Technologically-Inspired 
-                </h1>
-              </div>
+        <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
+          <h1 className="h1">
+            Discover the Future of Men's Fashion: Explore our Technologically-Inspired
+          </h1>
+        </div>
         <div className="border-2 border-gray-300 shadow-md">
-        
           <div className="flex m-4">
             <div className="p-4 bg-gray-900 text-white w-1/3">
               <div className="space-y-5">
@@ -115,7 +113,7 @@ export const SearchResult = () => {
               </button>
             </div>
             <div className="border-2 border-black p-7 shadow-md w-full max-h-50vh ml-5 overflow-scroll">
-              {searchResults.map((item, value) => (
+              {searchResults.map((item) => (
                 <div
                   key={item.id}
                   className="p-2 border-2 border-gray-200 shadow-md cursor-pointer text-black mb-20px hover:text-blue-400 transition duration-300"

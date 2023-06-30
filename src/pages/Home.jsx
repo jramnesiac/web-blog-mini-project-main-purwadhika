@@ -21,7 +21,7 @@ function Home() {
         {/* <LatestBlog/> */}
         {/*  Page sections */}
       </main>
-      <Banner/>
+      {/* <Banner/> */}
       {/*  Site footer */}
       <Footer />
 

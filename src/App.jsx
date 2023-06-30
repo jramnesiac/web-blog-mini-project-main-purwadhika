@@ -14,7 +14,7 @@ import WriteBlog from "./partials/WriteBlog";
 import SigninForm from "./pages/SignIn";
 import SignupForm from "./pages/SignUp";
 import Profile from "./pages/ProfilePage";
-import SearchBar from "./partials/Search";
+import SearchBar, { SearchResult } from "./partials/Search";
 import HeaderLogin from "./partials/HeaderLogin";
 import BlogDetailPage from "./partials/BlogDetailPage";
 import MyCircuitBlog from "./pages/MyCircuitBlog";
@@ -94,7 +94,7 @@ function App() {
         <Route path="/my-blog" element={<MyCircuitBlog/>} />
         <Route path="/Malware-Activated" element={<WriteBlog />} />
         <Route path="/profile-page" element={<Profile />} />
-        <Route path="/search" element={<SearchBar />} />
+        <Route path="/search" element={<SearchResult />} />
       </Routes>
     </Router>
   );

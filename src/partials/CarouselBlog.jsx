@@ -32,7 +32,7 @@ function CarouselBlog() {
 
   return (
     <div className="flex flex-col lg:flex-row justify-between mb-8">
-      <div className="w-full lg:w-2/3">
+      <div className="w-full lg:w-2/3 relative">
         <Carousel
           transition={{ duration: 0.1 }}
           className="rounded-xl"
@@ -48,17 +48,17 @@ function CarouselBlog() {
         >
           {blog.map((item, index) => (
             <div key={index} onClick={() => onSwiperClick(item.id)} className="cursor-pointer relative">
-              <div className="aspect-w-3 aspect-h-2">
-                <img
-                  src={`https://minpro-blog.purwadhikabootcamp.com/${item.imageURL}`}
-                  alt={`image ${index + 1}`}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  className="rounded-t-xl"
-                />
-              </div>
-              <div className="p-4 bg-white rounded-b-xl border border-gray-300">
-                <h3 className="text-2xl font-semibold text-gray-800 mb-2">{item.title}</h3>
-                <p className="text-gray-500">by: {item.User.username}</p>
+              <img
+                src={`https://minpro-blog.purwadhikabootcamp.com/${item.imageURL}`}
+                alt={`image ${index + 1}`}
+                className="w-full max-w-full px-2 rounded"
+              />
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+                <h3 className="text-3xl font-semibold text-white overflow-hidden whitespace-nowrap">
+                  <span className="inline-block max-w-full overflow-hidden">{item.title}</span>
+                </h3>
+                <p className="text-sm text-white">by: {item.User.username}</p>
               </div>
             </div>
           ))}
