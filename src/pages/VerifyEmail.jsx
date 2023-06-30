@@ -32,10 +32,10 @@ function VerificationPage() {
       <div className="max-w-xl px-5 text-center">
         <h2 className="mb-2 text-4xl font-bold text-gray-800">
           <img src={logo} alt="" className="w-64 mx-auto my-auto" />
-          Check your inbox
+          Welcome to Circuit Couture
         </h2>
         <p className="mb-2 text-lg text-gray-500">
-          Fashion Access Granted: Verify Your Email
+          Fashion Access Granted: One Step to Circuit Couture
         </p>
 
         <button
