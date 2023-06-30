@@ -1,19 +1,20 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const NavSide = () => {
   const navigate = useNavigate();
   const [blog, setBlog] = useState([]);
   const [fav, setFav] = useState([]);
-  const [selectedTab, setSelectedTab] = useState("favourite"); // Tambahkan state selectedTab di sini
+  const [selectedTab, setSelectedTab] = useState('favourite');
+  const [selectedBlogImage, setSelectedBlogImage] = useState(''); // Tambahkan state selectedBlogImage di sini
   const data = useSelector((state) => state.user.value);
 
   const getMost = async () => {
     try {
       const response = await axios.get(
-        "https://minpro-blog.purwadhikabootcamp.com/api/blog/pagFav?page=1&orderBy=total_fav&sort=DESC&size=10"
+        'https://minpro-blog.purwadhikabootcamp.com/api/blog/pagFav?page=1&orderBy=total_fav&sort=DESC&size=10'
       );
       setFav(response.data.result);
     } catch (err) {
@@ -23,18 +24,17 @@ const NavSide = () => {
 
   const getBlog = async () => {
     try {
-      const response = await axios.get(
-        "https://minpro-blog.purwadhikabootcamp.com/api/blog/"
-      );
+      const response = await axios.get('https://minpro-blog.purwadhikabootcamp.com/api/blog/');
       setBlog(response.data.result);
     } catch (err) {
       console.log(err);
     }
   };
 
-  const handleClick = (id) => {
+  const handleClick = (id, imageURL) => { // Mengambil URL gambar dari parameter dan menyimpannya dalam state selectedBlogImage
+    setSelectedBlogImage(imageURL);
     navigate(`/`);
-    navigate(`/blog/:id`);
+    navigate(`/blog/${id}`);
     window.location.reload();
   };
 
@@ -49,32 +49,32 @@ const NavSide = () => {
         <div className="mb-1">
           <button
             className={`px-2 py-1 ${
-              selectedTab === "favourite"
-                ? "bg-gray-300 focus:bg-gray-300"
-                : "bg-gray-200 hover:bg-gray-300 focus:outline-none focus:bg-gray-300"
+              selectedTab === 'favourite'
+                ? 'bg-gray-300 focus:bg-gray-300'
+                : 'bg-gray-200 hover:bg-gray-300 focus:outline-none focus:bg-gray-300'
             }`}
-            onClick={() => setSelectedTab("favourite")}
+            onClick={() => setSelectedTab('favourite')}
           >
             Favourite
           </button>
           <button
             className={`px-2 py-1 ${
-              selectedTab === "recently"
-                ? "bg-gray-300 focus:bg-gray-300"
-                : "bg-gray-200 hover:bg-gray-300 focus:outline-none focus:bg-gray-300"
+              selectedTab === 'recently'
+                ? 'bg-gray-300 focus:bg-gray-300'
+                : 'bg-gray-200 hover:bg-gray-300 focus:outline-none focus:bg-gray-300'
             }`}
-            onClick={() => setSelectedTab("recently")}
+            onClick={() => setSelectedTab('recently')}
           >
             Latest News
           </button>
         </div>
         <div className="flex-grow overflow-y-auto">
-          {selectedTab === "favourite" &&
+          {selectedTab === 'favourite' &&
             fav?.map((v, i) => (
               <div
                 key={i}
                 className="flex items-center border-b border-gray-300 hover:bg-gray-300 cursor-pointer"
-                onClick={() => handleClick(v.id)}
+                onClick={() => handleClick(v.id, v.User.imgProfile)} // Menyimpan URL gambar sebagai parameter kedua di handleClick
               >
                 <img
                   className="w-8 h-8 rounded-full"
@@ -88,12 +88,12 @@ const NavSide = () => {
                 </div>
               </div>
             ))}
-          {selectedTab === "recently" &&
+          {selectedTab === 'recently' &&
             blog?.map((v, i) => (
               <div
                 key={i}
                 className="flex items-center border-b border-gray-300 hover:bg-gray-300 cursor-pointer"
-                onClick={() => handleClick(v.id)}
+                onClick={() => handleClick(v.id, v.User.imgProfile)} // Menyimpan URL gambar sebagai parameter kedua di handleClick
               >
                 <img
                   className="w-8 h-8 rounded-full"
@@ -107,6 +107,13 @@ const NavSide = () => {
               </div>
             ))}
         </div>
+        {selectedBlogImage && ( // Menampilkan gambar jika selectedBlogImage memiliki nilai
+          <img
+            className="mt-4 w-24 h-24 rounded-full"
+            src={`https://minpro-blog.purwadhikabootcamp.com/${selectedBlogImage}`}
+            alt="Selected Blog Image"
+          />
+        )}
       </div>
     </div>
   );
