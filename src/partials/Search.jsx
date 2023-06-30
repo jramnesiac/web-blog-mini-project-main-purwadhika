@@ -62,10 +62,13 @@ export const SearchResult = () => {
     <>
       <HeaderLogin />
       <div className="p-10 h-70vh">
+      <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
+                <h1 className="h1">
+                Discover the Future of Men's Fashion: Explore our Technologically-Inspired 
+                </h1>
+              </div>
         <div className="border-2 border-gray-300 shadow-md">
-          <h1 className="text-center bg-gray-900 py-3 mb-5 text-gray-200">
-            Find Articles
-          </h1>
+        
           <div className="flex m-4">
             <div className="p-4 bg-gray-900 text-white w-1/3">
               <div className="space-y-5">

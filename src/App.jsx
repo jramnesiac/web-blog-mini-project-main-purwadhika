@@ -20,6 +20,7 @@ import BlogDetailPage from "./partials/BlogDetailPage";
 import MyCircuitBlog from "./pages/MyCircuitBlog";
 import ResetPassword from "./pages/ResetPassword";
 import PasswordReset from "./pages/NewPassoword";
+import CheckEmail from "./pages/CheckEmail";
 
 function App() {
   useEffect(() => {
@@ -79,6 +80,7 @@ function App() {
           path="/verification-change-email/:token"
           element={<VerificationPage />}
         />
+        <Route path="/check-email" element={<CheckEmail/>} />
         {/* <Route path="/forgot-password" element={}/> */}
         {/* <Route path="/reset-password/:token" element={} /> */}
         <Route path="/signin" element={<SigninForm />} />

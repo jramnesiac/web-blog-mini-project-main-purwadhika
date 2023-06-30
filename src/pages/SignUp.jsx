@@ -50,9 +50,9 @@ function SignupForm() {
         FE_URL,
       });
 
-      toast.success("Signup successful! Check Your Email...");
+      toast.success("Signup successful! Redirecting to sign in page...");
       setTimeout(() => {
-        navigate("/signin");
+        navigate("/check-email");
       }, 3000);
     } catch (err) {
       console.log(err);
