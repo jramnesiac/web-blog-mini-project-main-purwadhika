@@ -1,6 +1,4 @@
 import React from 'react';
-
-import Header from '../partials/Header';
 import HeroHome from '../partials/HeroHome';
 import Footer from '../partials/Footer';
 import CarouselBlog from '../partials/CarouselBlog';
@@ -20,7 +18,7 @@ function Home() {
         <HeroHome />
         <CarouselBlog/>
         <FavBlog/>
-        <LatestBlog/>
+        {/* <LatestBlog/> */}
         {/*  Page sections */}
       </main>
       <Banner/>

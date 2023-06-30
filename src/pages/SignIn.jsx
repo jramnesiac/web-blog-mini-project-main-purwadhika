@@ -8,7 +8,8 @@ import Header from "../partials/Header";
 import Banner from "../partials/Banner";
 import { useNavigate } from "react-router-dom";
 import { setValue } from "../redux/user";
-import VerificationPage from "./VerifyEmail";
+import HeaderLogin from "../partials/HeaderLogin";
+
 
 const SigninForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -49,9 +50,13 @@ const SigninForm = () => {
     setShowPassword(!showPassword);
   };
 
+  const handleResetPassword = () => {
+    navigate("/reset-password"); // Ganti dengan path halaman reset password yang sesuai
+  };
+
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-      <Header />
+      <HeaderLogin/>
       <main className="flex-grow">
         <section className="bg-gradient-to-b from-gray-100 to-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -136,11 +141,19 @@ const SigninForm = () => {
                             type="submit"
                             className="btn text-white bg-blue-600 hover:bg-blue-700 w-full"
                             disabled={isSubmitting}
-                            onClick={VerificationPage}
-                            
-                            
                           >
                             {isSubmitting ? "Signing in..." : "Sign In"}
+                          </button>
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap -mx-3 mt-4">
+                        <div className="w-full px-3">
+                          <button
+                            type="button"
+                            className="text-blue-600 hover:underline"
+                            onClick={handleResetPassword}
+                          >
+                            Forgot password? Reset here.
                           </button>
                         </div>
                       </div>

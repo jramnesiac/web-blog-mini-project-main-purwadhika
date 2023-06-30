@@ -54,7 +54,7 @@ const Profile = () => {
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
-    // Lakukan sesuatu dengan file yang dipilih
+   
     setImage(file);
   };
 

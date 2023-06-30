@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import { Carousel } from '@material-tailwind/react';
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import NavSide from '../pages/NavSide';
 
 function CarouselBlog() {
   const [blog, setBlog] = useState([]);
-
   const navigate = useNavigate();
 
   const onSwiperClick = (blogId) => {
-    console.log(`Clicked on blog with ID: ${blogId}`);
+    navigate(`/blog/${blogId}`);
   };
 
   const getContent = async () => {
@@ -31,38 +31,42 @@ function CarouselBlog() {
   }, []);
 
   return (
-    <div className="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
-      <Carousel
-        transition={{ duration: 0.1 }}
-        className="rounded-xl"
-        autoplay={true}
-        swipe={true}
-        drag={true}
-        breakpoints={{
-          sm: '640px',
-          md: '768px',
-          lg: '1024px',
-          xl: '1280px',
-        }}
-      >
-        {blog.map((item, index) => (
-          <div key={index} onClick={() => onSwiperClick(item.id)} className="cursor-pointer relative">
-            <img
-              src={`https://minpro-blog.purwadhikabootcamp.com/${item.imageURL}`}
-              alt={`image ${index + 1}`}
-              className="w-full max-w-full px-2 rounded"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-black bg-opacity-70 py-2 px-4 w-full text-white text-center">
-                <h3 className="text-xl font-semibold overflow-hidden whitespace-nowrap">
-                  <span className="inline-block max-w-full overflow-hidden">{item.title}</span>
-                </h3>
-                <p className="text-sm">by: {item.User.username}</p>
+    <div className="flex flex-col lg:flex-row justify-between mb-8">
+      <div className="w-full lg:w-2/3">
+        <Carousel
+          transition={{ duration: 0.1 }}
+          className="rounded-xl"
+          autoplay={true}
+          swipe={true}
+          drag={true}
+          breakpoints={{
+            sm: '640px',
+            md: '768px',
+            lg: '1024px',
+            xl: '1280px',
+          }}
+        >
+          {blog.map((item, index) => (
+            <div key={index} onClick={() => onSwiperClick(item.id)} className="cursor-pointer relative">
+              <div className="aspect-w-3 aspect-h-2">
+                <img
+                  src={`https://minpro-blog.purwadhikabootcamp.com/${item.imageURL}`}
+                  alt={`image ${index + 1}`}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  className="rounded-t-xl"
+                />
+              </div>
+              <div className="p-4 bg-white rounded-b-xl border border-gray-300">
+                <h3 className="text-2xl font-semibold text-gray-800 mb-2">{item.title}</h3>
+                <p className="text-gray-500">by: {item.User.username}</p>
               </div>
             </div>
-          </div>
-        ))}
-      </Carousel>
+          ))}
+        </Carousel>
+      </div>
+      <div className="w-full lg:w-1/3">
+        <NavSide />
+      </div>
     </div>
   );
 }

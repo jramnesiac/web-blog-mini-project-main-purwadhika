@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 function HeroHome() {
   return (
     <section className="relative">
@@ -29,9 +30,12 @@ function HeroHome() {
                     Unleash Your Style
                   </a>
                 </div>
+                
               </div>
+              
             </div>
           </div>
+          
 
           {/* Hero image */}
          

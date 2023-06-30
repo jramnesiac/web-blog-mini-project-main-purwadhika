@@ -6,13 +6,15 @@ import LatestBlog from '../partials/LatessBlog'
 import Banner from '../partials/Banner'
 import Footer from '../partials/Footer'
 
+
 export default function Blogger () {
     
     return (
         <>
             <HeaderLogin/>
+            
             <FavBlog/>
-            <LatestBlog/>
+            {/* <LatestBlog/> */}
             <Banner/>
             <Footer/>
             

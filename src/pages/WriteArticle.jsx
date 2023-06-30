@@ -7,6 +7,7 @@ function WriteArticle () {
 
     return (
         <>
+        <HeaderLogin/>
         <HeaderLogin />
         <WriteBlog/>
         </>

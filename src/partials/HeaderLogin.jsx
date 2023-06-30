@@ -18,7 +18,7 @@ function HeaderLogin() {
   // detect whether user has scrolled the page down by 10px
   useEffect(() => {
     const scrollHandler = () => {
-      window.pageYOffset > 10 ? setTop(false) : setTop(true);
+      window.scrollY > 10 ? setTop(false) : setTop(true);
     };
     window.addEventListener("scroll", scrollHandler);
     return () => window.removeEventListener("scroll", scrollHandler);
@@ -109,6 +109,14 @@ function HeaderLogin() {
                         >
                           Logout
                         </button>
+                      </li>
+                      <li>
+                        <Link
+                          to="/my-blog"
+                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                        >
+                          My Circuit Blog
+                        </Link>
                       </li>
                     </ul>
                   )}
