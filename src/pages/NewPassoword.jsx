@@ -3,6 +3,8 @@ import Axios from "axios";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PasswordReset = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -36,8 +38,9 @@ const PasswordReset = () => {
           },
         }
       );
-      navigate("/login");
+      navigate("/signin");
       console.log(response.data);
+      toast.success("Password successfully changed!"); // Tambahkan toast success
     } catch (err) {
       console.log(err);
     }
@@ -79,7 +82,7 @@ const PasswordReset = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="block text-white" htmlFor="confirmPassword">
+                  <label className="block text-gray-900" htmlFor="confirmPassword">
                     Confirm your password
                   </label>
                   <ErrorMessage
