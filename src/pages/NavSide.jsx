@@ -7,7 +7,7 @@ const NavSide = () => {
   const navigate = useNavigate();
   const [blog, setBlog] = useState([]);
   const [fav, setFav] = useState([]);
-  const [selectedTab, setSelectedTab] = useState("favourite");
+  const [selectedTab, setSelectedTab] = useState("favourite"); // Tambahkan state selectedTab di sini
   const data = useSelector((state) => state.user.value);
 
   const getMost = async () => {
@@ -33,7 +33,8 @@ const NavSide = () => {
   };
 
   const handleClick = (id) => {
-    navigate(`/blog/${id}`); // Menggunakan ID blog sebagai parameter dalam navigasi
+    navigate(`/`);
+    navigate(`/blog/:id`);
     window.location.reload();
   };
 
@@ -64,7 +65,7 @@ const NavSide = () => {
             }`}
             onClick={() => setSelectedTab("recently")}
           >
-            Recently
+            Latest News
           </button>
         </div>
         <div className="flex-grow overflow-y-auto">
