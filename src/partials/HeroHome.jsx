@@ -25,11 +25,7 @@ function HeroHome() {
                     The Latest Trends
                   </a>
                 </div>
-                <div>
-                  <a className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="#favblog">
-                    Unleash Your Style
-                  </a>
-                </div>
+               
                 
               </div>
               
